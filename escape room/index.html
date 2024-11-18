@@ -5,8 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Escape Room</title>
-
-
     <style>
         /* Aggiungi sfondo alla pagina */
         body {
@@ -17,32 +15,69 @@
             min-height: 100vh;
             color: white;
             font-family: 'Verdana', sans-serif;
+            margin: 0; /* Rimuove eventuali margini di default */
         }
 
-
-        /* Opzionale: Aggiungi un filtro per migliorare la leggibilità */
+        /* Overlay per migliorare la leggibilità del testo sopra lo sfondo */
         .overlay {
-            background-color: rgba(0, 0, 0, 0.5); /* Sfondo semitrasparente */
-            min-height: 100vh; /* Assicura che copra tutta la pagina */
-        }
-
-
-        /* Styling per la pagina iniziale */
-        .intro-content {
+            background-color: rgba(0, 0, 0, 0.6); /* Sfondo più scuro per una lettura migliore */
+            min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
             text-align: center;
-            height: 100vh;
+            flex-direction: column; /* Aggiunge una colonna per centrare il contenuto */
+        }
+
+        /* Styling per il contenuto della pagina iniziale */
+        .intro-content {
             z-index: 2;
         }
 
+        h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
 
         /* Stile del pulsante */
         .btn-start {
             font-size: 1.5em;
             padding: 15px 30px;
+            background-color: #28a745; /* Colore verde per il pulsante */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s ease;
         }
+
+        /* Cambia colore del pulsante al passaggio del mouse */
+        .btn-start:hover {
+            background-color: #218838;
+            transform: scale(1.05); /* Leggera animazione di ingrandimento */
+        }
+
+        /* Media Query per schermi piccoli */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2.5em;
+            }
+
+            p {
+                font-size: 1em;
+            }
+
+            .btn-start {
+                font-size: 1.2em;
+                padding: 10px 20px;
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -53,11 +88,9 @@
             <div>
                 <h1>Benvenuto nel mondo parallelo</h1>
                 <p>Sei stato intrappolato in un universo parallelo. Risolvi gli enigmi per ritornare al mondo normale</p>
-                <button class="btn btn-primary btn-start" onclick="window.location.href='#page1'">Vai alla Storia</button>
+                <button class="btn-start" onclick="window.location.href='#page1'">Vai alla Storia</button>
             </div>
         </div>
     </div>
 </body>
 </html>
-
-
