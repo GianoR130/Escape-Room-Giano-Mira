@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Storia - Portale delle Due Realtà</title>
+    <style>
+        /* Impostazioni generali */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Sfondo che copre tutta la finestra */
+        .background {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            background-image: url('https://mrwallpaper.com/images/hd/spooky-library-bookshelf-hfbn5rfxtpbemn4d.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Overlay con immagine */
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://media.istockphoto.com/id/1195781759/it/vettoriale/vettore-realistico-un-vecchio-libro-aperto-legato-in-pelle-con-angoli-metallici-pagine.jpg?s=612x612&w=0&k=20&c=HnTdaW6hd44BYDeKFUZiGPotTmNrgvVEFUb4DBnzX3I='); 
+            background-size: cover;
+            background-position: center;
+            opacity: 0.6; /* Regola l'opacità dell'immagine overlay */
+        }
+
+        /* Contenuto centrato */
+        .content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            max-width: 80%;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+        }
+
+        /* Stile per il titolo */
+        h1 {
+            font-size: 3rem;
+            margin: 0;
+            font-weight: bold;
+        }
+
+        /* Stile per il testo della storia */
+        .story-text {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-top: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Contenitore dello sfondo -->
+    <div class="background">
+        <!-- Overlay con immagine -->
+        <div class="overlay"></div>
+
+        <!-- Contenuto centrale -->
+        <div class="content">
+            <!-- Titolo -->
+            <h1>La storia</h1>
+            <!-- Testo della storia -->
+            <p class="story-text">
+                Un gruppo di ricercatori trova un antico manoscritto in una biblioteca universitaria, che li conduce a scoprire l'esistenza di un "Portale delle Due Realtà", un artefatto che collega il nostro mondo a una dimensione parallela. Nonostante le leggende dicono che il portale sia stato chiuso per evitare il caos, i ricercatori, spinti dalla curiosità, decidono di aprirlo. Una volta attivato, il portale distorce il tempo e lo spazio, intrappolando il gruppo in due realtà parallele: una simile al loro mondo, ma con dettagli strani, l'altra completamente deformata. Per tornare indietro, devono risolvere enigmi che richiedono l'interazione tra le due dimensioni, mentre il tempo corre contro di loro e il portale rischia di diventare instabile.
+            </p>
+        </div>
+    </div>
+
+</body>
+</html>
