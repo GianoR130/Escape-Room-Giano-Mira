@@ -13,6 +13,16 @@
             font-family: Arial, sans-serif;
         }
 
+        .overlay {
+            background-color: rgba(0, 0, 0, 0.4); /* Sfondo più scuro per una lettura migliore */
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            flex-direction: column; /* Aggiunge una colonna per centrare il contenuto */
+        }
+
         /* Sfondo che copre tutta la finestra */
         .background {
             position: relative;
@@ -23,30 +33,16 @@
             background-position: center;
         }
 
-        /* Overlay con effetto vignetta */
-        .overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.5); /* Sfondo scuro per il filtro */
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 70%); /* Effetto vignetta */
-            opacity: 1.0; /* Opacità dell'overlay */
-            box-shadow: inset 0 0 200px rgba(0, 0, 0, 0.6); /* Ombra interna per l'effetto vignetta */
-        }
-
         /* Contenuto centrato */
         .content {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            color: white;
+            color: rgb(255, 255, 255);
             text-align: center;
             padding: 20px;
             max-width: 80%;
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
         }
 
         /* Stile per il titolo */
@@ -63,8 +59,26 @@
             margin-top: 20px;
             max-width: 800px;
             margin: 0 auto;
-            text-shadow: 5px 5px 8px rgba(0, 0, 0, 0.8);
         }
+
+         /* Stile del pulsante */
+         .btn-start {
+            font-size: 1.5em;
+            padding: 15px 30px;
+            background-color: #ffffff; /* Colore verde per il pulsante */
+            color: rgb(0, 0, 0);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s ease;
+        }
+
+        /* Cambia colore del pulsante al passaggio del mouse */
+        .btn-start:hover {
+            background-color: #989898;
+            transform: scale(1.05); /* Leggera animazione di ingrandimento */
+        }
+
     </style>
 </head>
 <body>
@@ -82,6 +96,7 @@
             <p class="story-text">
                 Un gruppo di ricercatori trova un antico manoscritto in una biblioteca universitaria, che li conduce a scoprire l'esistenza di un "Portale delle Due Realtà", un artefatto che collega il nostro mondo a una dimensione parallela. Nonostante le leggende dicono che il portale sia stato chiuso per evitare il caos, i ricercatori, spinti dalla curiosità, decidono di aprirlo. Una volta attivato, il portale distorce il tempo e lo spazio, intrappolando il gruppo in due realtà parallele: una simile al loro mondo, ma con dettagli strani, l'altra completamente deformata. Per tornare indietro, devono risolvere enigmi che richiedono l'interazione tra le due dimensioni, mentre il tempo corre contro di loro e il portale rischia di diventare instabile.
             </p>
+            <button class="btn-start" onclick="window.location.href='storia2.html'">Inizia a giocare</button>
         </div>
     </div>
 
