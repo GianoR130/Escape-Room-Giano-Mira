@@ -8,7 +8,7 @@
 
          /* Aggiungi sfondo alla pagina */
          body {
-            background-image: url('https://www.allaboutai.com/wp-content/uploads/2023/12/Step-by-Step-Guide-1.jpg');
+            background-image: url('https://www.whymarche.com/wp-content/uploads/2021/04/2016-04-30-11-42-18-_B162430.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -20,7 +20,7 @@
 
         /* Overlay per migliorare la leggibilità del testo sopra lo sfondo */
         .overlay {
-            background-color: rgba(0, 0, 0, 0.6); /* Sfondo più scuro per una lettura migliore */
+            background-color: rgba(0, 0, 0, 0.4); /* Sfondo più scuro per una lettura migliore */
             min-height: 100vh;
             display: flex;
             justify-content: center;
@@ -32,6 +32,23 @@
     </style>
 </head>
 <body>
-    
+
+    <!-- Contenitore dello sfondo -->
+    <div class="background">
+        <!-- Overlay con effetto vignetta -->
+        <div class="overlay"></div>
+
+        <!-- Contenuto centrale -->
+        <div class="content">
+            <!-- Titolo -->
+            <h1>La storia</h1>
+            <!-- Testo della storia -->
+            <p class="story-text">
+                Un gruppo di ricercatori trova un antico manoscritto in una biblioteca universitaria, che li conduce a scoprire l'esistenza di un "Portale delle Due Realtà", un artefatto che collega il nostro mondo a una dimensione parallela. Nonostante le leggende dicono che il portale sia stato chiuso per evitare il caos, i ricercatori, spinti dalla curiosità, decidono di aprirlo. Una volta attivato, il portale distorce il tempo e lo spazio, intrappolando il gruppo in due realtà parallele: una simile al loro mondo, ma con dettagli strani, l'altra completamente deformata. Per tornare indietro, devono risolvere enigmi che richiedono l'interazione tra le due dimensioni, mentre il tempo corre contro di loro e il portale rischia di diventare instabile.
+            </p>
+            <button class="btn-start" onclick="window.location.href='storia2.html'">Inizia a giocare</button>
+        </div>
+    </div>
+
 </body>
 </html>
