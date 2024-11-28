@@ -19,10 +19,10 @@
         }
 
         .circle-button {
-            width: 30px;             /* Larghezza */
-            height: 30px;            /* Altezza */
+            width: 20px;             /* Larghezza */
+            height: 20px;            /* Altezza */
             border-radius: 50%;       /* Trasforma il bottone in un cerchio */
-            border: 4px solid #656565; /* Bordo con colore */
+            border: 3px solid #656565; /* Bordo con colore */
             background-color: #727272; /* Colore di sfondo */
             color: white;             /* Colore del testo */
             font-size: 16px;          /* Dimensione del testo */
@@ -34,7 +34,41 @@
             position: absolute;
             left: 480px;
             top: 260px;
-        }   
+        }
+        
+        .circle-button:hover {
+            width: 30px;             /* Aumenta la larghezza */
+            height: 30px;            /* Aumenta l'altezza */
+            background-color: #7b7b7b; /* Cambia il colore di sfondo */
+        }
+
+         /* Stile per la domanda e le risposte */
+         .question-box {
+            display: none;
+            position: absolute;
+            left: 56%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.834);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            color: white;
+        }
+
+        .question-box button {
+            margin: 10px;
+            padding: 10px;
+            background-color: #3f7fff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .question-box button:hover {
+            background-color: #888888;
+        }
 
     </style>
 </head>
@@ -44,24 +78,6 @@
     <div class="background">
         <!-- Overlay con effetto vignetta -->
         <div class="overlay"></div>
-        
-        <div class="circle-button" onclick="toggleDomanda()"></div>
-        </div>
-
-        <!-- La domanda che sarà visualizzata dopo il click -->
-        <div class="domanda" id="domanda">
-            <p><strong>Qual è il tuo primo pensiero sul portale?</strong></p>
-            <div>
-                <label><input type="radio" name="risposta" value="1"> È affascinante, ma pericoloso!</label>
-                <label><input type="radio" name="risposta" value="2"> Non vedo l'ora di esplorarlo!</label>
-                <label><input type="radio" name="risposta" value="3"> Non credo che dovremmo aprirlo...</label>
-            </div>
-            <!-- Tasto per confermare la risposta -->
-            <button class="btn-conferma" onclick="confermaRisposta()">Conferma risposta</button>
-            <!-- Messaggio per indicare se la risposta è giusta o sbagliata -->
-            <div class="risultato" id="risultato"></div>
-        </div>
-    </div>
 
         <!-- Contenuto centrale -->
         <div class="content">
@@ -74,6 +90,42 @@
             <button class="circle-button"></button>
         </div>
     </div>
+
+     <!-- Domanda che appare dopo il clic sul bottone -->
+     <div class="question-box" id="questionBox">
+        <p>Cos'è una subnet mask?</p>
+        <button class="answer">La subnet mask è un parametro<br>che definisce quale parte<br>di un indirizzo IP</button>
+        <button class="answer">La subnet mask è un indirizzo<br>IP che identifica un dispositivo<br>all'interno di una rete. </button>
+        <button class="answer">La subnet mask è una chiave di<br>sicurezza che protegge l'accesso<br>alla rete.</button>
+    </div>
+
+</div>
+
+<script>
+    // Seleziona il bottone e la sezione della domanda
+    const circleButton = document.querySelector('.circle-button');
+    const questionBox = document.getElementById('questionBox');
+    const answerButtons = document.querySelectorAll('.answer');
+
+    // Aggiungi evento di clic al bottone rotondo
+    circleButton.addEventListener('click', () => {
+        // Se la domanda è già visibile, nascondila
+        if (questionBox.style.display === 'block') {
+            questionBox.style.display = 'none';
+        } else {
+            // Altrimenti, mostra la domanda
+            questionBox.style.display = 'block';
+        }
+    });
+
+    // Gestisci le risposte
+    answerButtons.forEach(button => {
+        button.addEventListener('click', (event) => {
+            alert(`Hai selezionato: ${event.target.textContent}`);
+            questionBox.style.display = 'none';  // Nasconde la domanda dopo la risposta
+        });
+    });
+</script>
 
 </body>
 </html>
