@@ -44,6 +44,24 @@
     <div class="background">
         <!-- Overlay con effetto vignetta -->
         <div class="overlay"></div>
+        
+        <div class="circle-button" onclick="toggleDomanda()"></div>
+        </div>
+
+        <!-- La domanda che sarà visualizzata dopo il click -->
+        <div class="domanda" id="domanda">
+            <p><strong>Qual è il tuo primo pensiero sul portale?</strong></p>
+            <div>
+                <label><input type="radio" name="risposta" value="1"> È affascinante, ma pericoloso!</label>
+                <label><input type="radio" name="risposta" value="2"> Non vedo l'ora di esplorarlo!</label>
+                <label><input type="radio" name="risposta" value="3"> Non credo che dovremmo aprirlo...</label>
+            </div>
+            <!-- Tasto per confermare la risposta -->
+            <button class="btn-conferma" onclick="confermaRisposta()">Conferma risposta</button>
+            <!-- Messaggio per indicare se la risposta è giusta o sbagliata -->
+            <div class="risultato" id="risultato"></div>
+        </div>
+    </div>
 
         <!-- Contenuto centrale -->
         <div class="content">
