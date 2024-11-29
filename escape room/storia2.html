@@ -122,7 +122,8 @@
         // Gestisce il clic sul bottone di conferma
         confirmButton.addEventListener('click', () => {
             if (selectedAnswer) {
-                if (selectedAnswer === document.getElementById('GIUSTA')) {
+                if (selectedAnswer === document.getElementById('GIUSTA').textContent) {
+
                     // Se la risposta è corretta, reindirizza alla nuova pagina
                     window.location.href = 'storia3.html'; 
                 } else {
