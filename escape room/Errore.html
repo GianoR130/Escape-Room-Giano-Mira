@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* Cambia il colore dello sfondo qui */
+        body {
+            background-color: #141414; /* Grigio scuro */
+            display: flex;
+            flex-direction: column; /* Posiziona gli elementi in colonna */
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: #8B0000; /* Rosso scuro per il testo */
+            font-size: 5em; /* Testo grande */
+            font-family: Arial, sans-serif;
+            text-align: center;
+            opacity: 0; /* Inizialmente nascosto */
+            animation: fadeIn 2s forwards; /* Animazione di fade-in */
+        }
+
+        /* Definizione dell'animazione fade */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Stile per il bottone */
+        #btn {
+            background-color: #8B0000; /* Rosso scuro */
+            color: white;
+            padding: 2px 4px; /* Ridotto per bottone più piccolo */
+            font-size: 0.5em; /* Font più piccolo */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            opacity: 0.6; /* Appare semi-trasparente inizialmente */
+        }
+
+        #btn:hover {
+            background-color: #B22222; /* Colore del bottone quando ci si passa sopra */
+        }
+
+        /* Bottone disabilitato */
+        #btn:disabled {
+            background-color: #444; /* Bottone disabilitato con un colore più scuro */
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+    <p style="font-family:'Times New Roman', serif;">Riposta errata.</p>
+    <!-- Bottone che appare subito, ma è disabilitato inizialmente -->
+    <button id="btn" disabled onclick="window.location.href='2Storia.html'">Riprova</button>
+
+    <script>
+        // Mostra il bottone subito (è già visibile per default, ma disabilitato)
+        document.getElementById('btn').style.opacity = 1; // Rendi il bottone visibile
+
+        // Abilita il bottone dopo 3 secondi
+        setTimeout(function() {
+            document.getElementById('btn').disabled = false; // Abilita il bottone
+        }, 4000);
+    </script>
+</body>
+</html>
