@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz - Lost in the old abandoned library</title>
+    <style>
+        /* Impostazioni generali */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: Arial, sans-serif;
+        }
+
+        .overlay {
+            background-color: rgba(0, 0, 0, 0.4); /* Sfondo più scuro per una lettura migliore */
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            flex-direction: column; /* Aggiunge una colonna per centrare il contenuto */
+        }
+
+        /* Sfondo che copre tutta la finestra */
+        .background {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            background-image: url('https://t4.ftcdn.net/jpg/02/00/68/69/360_F_200686968_KS9NVTJgvjMQs2FniVHyIJaAIcg5p7D0.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Contenuto centrato */
+        .content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: rgb(255, 255, 255);
+            text-align: center;
+            padding: 20px;
+            max-width: 80%;
+        }
+
+        /* Stile per il titolo */
+        h1 {
+            font-size: 3rem;
+            margin: 0;
+            font-weight: bold;
+        }
+
+        /* Stile per il testo della storia */
+        .story-text {
+            font-size: 1.3rem;
+            line-height: 1.6;
+            margin-top: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Stile per i pulsanti */
+        .btn {
+            font-size: 1.5em;
+            padding: 15px 30px;
+            background-color: #ffffff; /* Colore del pulsante */
+            color: rgb(0, 0, 0);
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s ease;
+            margin: 10px;
+        }
+
+        /* Cambia colore del pulsante al passaggio del mouse */
+        .btn:hover {
+            background-color: #989898;
+            transform: scale(1.05); /* Leggera animazione di ingrandimento */
+        }
+
+        /* Pulsante disabilitato */
+        .btn:disabled {
+            background-color: #898989;
+            cursor: not-allowed;
+        }
+
+        /* Contenitore dei pulsanti per allinearli orizzontalmente */
+        .button-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        /* Pulsante Torna Indietro sotto con lo stesso stile degli altri */
+        .btn-back {
+            display: block;
+            margin: 20px auto;
+        }
+
+        /* Pulsante Indizio con dimensioni ridotte */
+        .btn-indizio {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 1.2em; /* Diminuisci la dimensione del font */
+            padding: 10px 20px; /* Riduci il padding */
+            background-color: #ffffff;
+            color: rgb(0, 0, 0);
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s ease;
+        }
+
+        /* Cambia colore del pulsante Indizio al passaggio del mouse */
+        .btn-indizio:hover {
+            background-color: #989898;
+            transform: scale(1.05); /* Leggera animazione di ingrandimento */
+        }
+
+        /* Pulsante Indizio disabilitato */
+        .btn-indizio:disabled {
+            background-color: #ffffff; /* Mantieni il colore di sfondo chiaro */
+            color: rgb(0, 0, 0); /* Mantieni il testo scuro */
+            cursor: not-allowed; /* Cambia il cursore per indicare che è disabilitato */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Contenitore dello sfondo -->
+    <div class="background">
+        <!-- Overlay con effetto vignetta -->
+        <div class="overlay"></div>
+
+        <!-- Contenuto centrale -->
+        <div class="content">
+            <!-- Titolo -->
+            <h1>Third quiz</h1>
+            <!-- Testo della storia -->
+            <p class="story-text" style="font-family:'Courier New'">
+                To proceed with the quizzes you must find the number of subnets and hosts for subnets that you can get with the subnet mask 255.255.255.224
+            </p>
+
+            <!-- Contenitore dei 3 pulsanti orizzontali -->
+            <div class="button-container">
+                <button class="btn" id="A">9 subnets and 20 hosts per subnet</button>
+                <button class="btn" id="B">12 subnets and 45 hosts per subnet</button>
+                <button class="btn" id="C">8 subnets and 30 hosts per subnet</button>
+            </div>
+
+            <!-- Pulsante Torna Indietro sotto con lo stesso stile -->
+            <button class="btn btn-back" onclick="window.history.back()">Go back</button>
+        </div>
+
+        <!-- Pulsante Indizio in alto a destra -->
+        <button class="btn btn-indizio">Hint</button>
+    </div>
+
+    <script>
+        // Funzione per gestire la risposta dei pulsanti
+        document.getElementById('A').addEventListener('click', function() {
+            window.location.href = "Errore.html";  // Porta alla pagina Errore.html
+        });
+
+        document.getElementById('B').addEventListener('click', function() {
+            window.location.href = "Errore.html";  // Porta alla pagina Errore.html
+        });
+
+        document.getElementById('C').addEventListener('click', function() {
+            window.location.href = "Quiz4.html";  // Porta alla pagina Quiz4.html
+        });
+
+        // Funzione per cambiare il testo del pulsante Indizio e disabilitarlo
+        document.querySelector('.btn-indizio').addEventListener('click', function() {
+            const btn = this;
+            if (btn.textContent === "Hint") {
+                btn.textContent = "830"; // Mostra l'indizio
+                btn.disabled = true; // Disabilita il pulsante per impedire clic successivi
+            }
+        });
+    </script>
+
+</body>
+</html>

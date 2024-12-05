@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz - Persi nell'antica biblioteca abbandonata</title>
+    <style>
+        /* Impostazioni generali */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: Arial, sans-serif;
+        }
+
+        .overlay {
+            background-color: rgba(0, 0, 0, 0.4); /* Sfondo più scuro per una lettura migliore */
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            flex-direction: column; /* Aggiunge una colonna per centrare il contenuto */
+        }
+
+        .background {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            background-image: url('https://t4.ftcdn.net/jpg/02/00/68/69/360_F_200686968_KS9NVTJgvjMQs2FniVHyIJaAIcg5p7D0.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Contenuto centrato */
+        .content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: rgb(255, 255, 255);
+            text-align: center;
+            padding: 20px;
+            max-width: 80%;
+        }
+
+        /* Stile per il titolo */
+        h1 {
+            font-size: 3rem;
+            margin: 0;
+            font-weight: bold;
+        }
+
+        /* Stile per il testo della storia */
+        .story-text {
+            font-size: 1.3rem;
+            line-height: 1.6;
+            margin-top: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Stile dei pulsanti */
+        .btn-start {
+            font-size: 1rem;  /* Ridotto leggermente per migliorare la leggibilità */
+            padding: 10px;
+            background-color: #ffffff; /* Colore del pulsante */
+            color: rgb(0, 0, 0);
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s ease;
+            margin: 10px;
+            width: 100%; /* Imposta i pulsanti alla larghezza del loro contenitore */
+            height: 60px; /* Altezza fissa per tutti i pulsanti */
+            box-sizing: border-box; /* Include padding e bordi nel calcolo della larghezza */
+        }
+
+        /* Cambia colore del pulsante al passaggio del mouse */
+        .btn-start:hover {
+            background-color: #989898;
+            transform: scale(1.05); /* Leggera animazione di ingrandimento */
+        }
+
+        .button-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 20px;
+            margin-bottom: 30px;
+            justify-items: center;
+            align-items: center;
+            width: 100%;
+        }
+
+        .btn-back {
+            font-size: 1.5em;
+            padding: 15px 30px;
+            background-color: #ffffff;
+            color: rgb(0, 0, 0);
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s ease;
+            margin-top: 20px;
+            width: 100%; /* Pulsante largo quanto la pagina */
+            height: 60px; /* Altezza fissa per il pulsante "Torna indietro" */
+            box-sizing: border-box; /* Include padding e bordi nel calcolo della larghezza */
+        }
+
+        .btn-back:hover {
+            background-color: #989898;
+            transform: scale(1.05); /* Leggera animazione di ingrandimento */
+        }
+
+        /* CSS per l'animazione fade-in e fade-out dell'immagine */
+        .image-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 70vw;  /* Prende tutta la larghezza della finestra */
+            height: 70vh; /* Prende tutta l'altezza della finestra */
+            pointer-events: none; /* L'immagine non interferisce con altri eventi del mouse */
+            z-index: 9998; /* È dietro l'immagine stessa, ma sopra altri elementi */
+        }
+
+        .fade-in-image {
+            display: none;
+            position: absolute;
+            width: 150px; /* Impostiamo una dimensione fissa per l'immagine */
+            height: 150px;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+            z-index: 9999; /* L'immagine è sopra il contenitore */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Contenitore dello sfondo -->
+    <div class="background">
+        <!-- Overlay con effetto vignetta -->
+        <div class="overlay"></div>
+
+        <!-- Contenuto centrale -->
+        <div class="content">
+            <!-- Titolo -->
+            <h1>Secondo quiz</h1>
+            <!-- Testo della storia -->
+            <p class="story-text" style="font-family:'Courier New'">
+                Per uscire dalla sala in cui siete rinchiusi, dovete rispondere correttamente ai quiz che vi verranno posti:
+            </p>
+            <p class="story-text" style="font-family:'Courier New'">
+                - Cos'è una subnet mask?
+            </p>
+
+            <div class="button-grid">
+                <!-- Risposta A (giusta, porta a Quiz3.html) -->
+                <button class="btn-start" id="A" onclick="goToQuiz()">La subnet mask è un parametro che definisce le diverse parti un indirizzo IP.</button>
+                <!-- Risposte B, C, D (sbagliate, portano a Errore.html) -->
+                <button class="btn-start" id="B" onclick="goToError()">La subnet mask è un indirizzo IP che identifica un dispositivo all'interno di una rete.</button>
+                <button class="btn-start" id="C" onclick="goToError()">La subnet mask è una chiave di sicurezza che protegge l'accesso alla rete.</button>
+                <button class="btn-start" id="D" onclick="showImage()">Non lo so.</button>
+            </div>
+
+            <!-- Pulsante "Torna indietro" sotto a tutto -->
+            <button class="btn-back" onclick="window.history.back()">Torna Indietro</button>
+
+            <!-- Contenitore per l'immagine (posizione casuale) -->
+            <div class="image-container">
+                <img src="https://pbs.twimg.com/media/Fqf_TmIaMAExKE5.jpg" alt="Immagine di risposta" class="fade-in-image" id="fadeImage">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Variabile per contare i clic sul bottone "Non lo so"
+        let clickCount = 0;
+
+        // Funzione per reindirizzare alla pagina successiva corretta
+        function goToQuiz() {
+            window.location.href = "Quiz3.html"; // Reindirizza alla pagina del prossimo quiz
+        }
+
+        // Funzione per reindirizzare alla pagina di errore
+        function goToError() {
+            window.location.href = "Errore.html"; // Reindirizza alla pagina di errore
+        }
+
+        // Funzione per mostrare l'immagine con animazione fade-in e poi fade-out
+        function showImage() {
+            // Incrementa il conteggio dei clic
+            clickCount++;
+
+            // Se il bottone è stato cliccato 10 volte, reindirizza alla pagina "Egg21.html"
+            if (clickCount >= 10) {
+                window.location.href = "Egg21.html";
+                return; // Evita che l'immagine venga mostrata se si è già cliccato 10 volte
+            }
+
+            var image = document.getElementById("fadeImage");
+            var container = document.querySelector(".image-container");
+            var imageWidth = 150;  // Larghezza dell'immagine
+            var imageHeight = 150; // Altezza dell'immagine
+
+            // Generare posizioni casuali per l'immagine all'interno del contenitore
+            var maxX = container.offsetWidth - imageWidth;
+            var maxY = container.offsetHeight - imageHeight;
+
+            var randomX = Math.random() * maxX;
+            var randomY = Math.random() * maxY;
+
+            // Posizioniamo l'immagine in una posizione casuale
+            image.style.left = randomX + "px";
+            image.style.top = randomY + "px";
+
+            // Mostriamo l'immagine con l'animazione fade-in
+            image.style.display = "block";
+            setTimeout(function() {
+                image.style.opacity = 1; // Attiviamo l'animazione fade-in
+            }, 10); // Timeout per garantire che il browser aggiorni prima lo stile
+
+            // Dopo un timeout di 2 secondi (durata dell'animazione fade-in), facciamo scomparire l'immagine
+            setTimeout(function() {
+                image.style.opacity = 0; // Attiviamo l'animazione fade-out
+                setTimeout(function() {
+                    image.style.display = "none"; // Nascondiamo l'immagine dopo che è scomparsa
+                }, 500);
+            }, 800); // La seconda animazione (fade-out) avviene dopo 2 secondi
+        }
+    </script>
+
+</body>
+</html>

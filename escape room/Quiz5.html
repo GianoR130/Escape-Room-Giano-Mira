@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz - Persi nell'antica biblioteca abbandonata</title>
+    <style>
+        /* Impostazioni generali */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: Arial, sans-serif;
+        }
+
+        .overlay {
+            background-color: rgba(0, 0, 0, 0.4); /* Sfondo più scuro per una lettura migliore */
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            flex-direction: column; /* Aggiunge una colonna per centrare il contenuto */
+        }
+
+        /* Sfondo che copre tutta la finestra */
+        .background {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            background-image: url('https://t4.ftcdn.net/jpg/02/00/68/69/360_F_200686968_KS9NVTJgvjMQs2FniVHyIJaAIcg5p7D0.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Contenuto centrato */
+        .content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: rgb(255, 255, 255);
+            text-align: center;
+            padding: 20px;
+            max-width: 80%;
+        }
+
+        /* Stile per il titolo */
+        h1 {
+            font-size: 3rem;
+            margin: 0;
+            font-weight: bold;
+        }
+
+        /* Stile per il testo della storia */
+        .story-text {
+            font-size: 1.3rem;
+            line-height: 1.6;
+            margin-top: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Stile per i pulsanti */
+        .btn {
+            font-size: 1rem; /* Ridurre leggermente la dimensione del font */
+            padding: 10px 20px; /* Ridurre le dimensioni del padding */
+            background-color: #ffffff; /* Colore del pulsante */
+            color: rgb(0, 0, 0);
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s ease;
+            margin: 10px; /* Margine verticale e orizzontale tra i pulsanti */
+            width: 100%; /* I pulsanti occupano tutta la larghezza */
+            max-width: 180px; /* Larghezza massima dei pulsanti */
+        }
+
+        /* Cambia colore del pulsante al passaggio del mouse */
+        .btn:hover {
+            background-color: #989898;
+            transform: scale(1.05); /* Leggera animazione di ingrandimento */
+        }
+
+        /* Pulsante disabilitato */
+        .btn:disabled {
+            background-color: #898989;
+            cursor: not-allowed;
+        }
+
+        /* Contenitore dei pulsanti in griglia */
+        .button-container {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr); /* 5 colonne */
+            grid-template-rows: repeat(3, auto); /* 3 righe */
+            gap: 10px; /* Spazio tra i pulsanti */
+            justify-items: center;
+            margin-bottom: 20px;
+        }
+
+        .btn-back {
+            display: block;
+            margin: 20px auto;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Contenitore dello sfondo -->
+    <div class="background">
+        <!-- Overlay con effetto vignetta -->
+        <div class="overlay"></div>
+
+        <!-- Contenuto centrale -->
+        <div class="content">
+            <!-- Titolo -->
+            <h1>Quinto quiz</h1>
+            <!-- Testo della storia -->
+            <p class="story-text" style="font-family:'Courier New'">
+                Qual’è lo scopo principale del DHCP in una rete?
+            </p>
+
+            <!-- Contenitore dei 16 pulsanti disposti in una griglia 3x5 -->
+            <div class="button-container">
+                <button class="btn" id="1">Monitorare il traffico di rete e prevenire attacchi hacker.</button>
+
+                <button class="btn" id="2">Fornire indirizzi IP dinamici ai dispositivi di rete in modo automatico.</button>
+
+                <button class="btn" id="3">Trasferire file tra computer in una rete locale.</button>
+
+                <button class="btn" id="4">Creare connessioni sicure tra client e server attraverso la crittografia.</button>
+
+                <button class="btn" id="5">Controllare il livello di segnale delle connessioni Wi-Fi.</button>
+
+                <button class="btn" id="6">Assegnare automaticamente indirizzi IP ai dispositivi connessi alla rete.</button>
+
+                <button class="btn" id="7">Gestire il flusso dei dati tra i vari switch di rete.</button>
+
+                <button class="btn" id="8">Sincronizzare l'orario dei dispositivi in rete con un server centrale.</button>
+                
+                <button class="btn" id="9">Ridurre il consumo di energia nei dispositivi collegati alla rete.</button>
+
+                <button class="btn" id="10">Configurare i firewall di rete in modo centralizzato.</button>
+
+                <button class="btn" id="11">Identificare il sistema operativo di ogni dispositivo in rete.</button>
+
+                <button class="btn" id="12">Consentire ai dispositivi di accedere a Internet senza utilizzare un indirizzo IP.</button>
+                
+                <button class="btn" id="13">Configurare e aggiornare automaticamente il software nei dispositivi di rete.</button>
+
+                <button class="btn" id="14">Impedire che due dispositivi utilizzino lo stesso indirizzo MAC.</button>
+
+                <button class="btn" id="15">Creare VLAN (Virtual Local Area Network) su una rete aziendale.</button>
+
+            </div>
+
+            <!-- Pulsante Torna Indietro sotto con lo stesso stile -->
+            <button class="btn btn-back" onclick="window.history.back()">Torna indietro</button>
+        </div>
+
+    </div>
+
+    <script>
+        // Funzione per gestire la risposta dei pulsanti
+        document.getElementById('1').addEventListener('click', function() {
+            window.location.href = "Errore.html";  // Porta alla pagina Errore.html
+        });
+
+        document.getElementById('2').addEventListener('click', function() {
+            window.location.href = "Errore.html";  // Porta alla pagina Errore.html
+        });
+
+        document.getElementById('3').addEventListener('click', function() {
+            window.location.href = "Errore.html";  // Porta alla pagina Errore.html
+        });
+
+        document.getElementById('4').addEventListener('click', function() {
+            window.location.href = "Errore.html";  // Porta alla pagina Errore.html
+        });
+
+        document.getElementById('5').addEventListener('click', function() {
+            window.location.href = "Errore.html";  // Porta alla pagina Errore.html
+        });
+
+        document.getElementById('6').addEventListener('click', function() {
+            window.location.href = "Quiz6.html";  // Porta alla pagina Quiz6.html
+        });
+
+        document.getElementById('7').addEventListener('click', function() {
+            window.location.href = "Errore.html";  // Porta alla pagina Errore.html
+        });
+
+        document.getElementById('8').addEventListener('click', function() {
+            window.location.href = "Errore.html";  // Porta alla pagina Errore.html
+        });
+
+        document.getElementById('9').addEventListener('click', function() {
+            window.location.href = "Errore.html";  // Porta alla pagina Errore.html
+        });
+
+        document.getElementById('10').addEventListener('click', function() {
+            window.location.href = "Errore.html";  // Porta alla pagina Errore.html
+        });
+
+        document.getElementById('11').addEventListener('click', function() {
+            window.location.href = "Errore.html";  // Porta alla pagina Errore.html
+        });
+
+        document.getElementById('12').addEventListener('click', function() {
+            window.location.href = "Errore.html";  // Porta alla pagina Errore.html
+        });
+
+        document.getElementById('13').addEventListener('click', function() {
+            window.location.href = "Errore.html";  // Porta alla pagina Errore.html
+        });
+
+        document.getElementById('14').addEventListener('click', function() {
+            window.location.href = "Errore.html";  // Porta alla pagina Errore.html
+        });
+
+        document.getElementById('15').addEventListener('click', function() {
+            window.location.href = "Errore.html";  // Porta alla pagina Errore.html
+        });
+    </script>
+
+</body>
+</html>
